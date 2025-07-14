@@ -378,7 +378,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-height: 400px; /* Ajuste conforme necessário */
+  max-height: 700px; /* Ajuste conforme necessário */
 }
 
 .doctor-photo img {
