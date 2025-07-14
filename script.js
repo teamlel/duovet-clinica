@@ -43,21 +43,33 @@ window.addEventListener('scroll', () => {
 // Alternar informações das doutoras
 function toggleDoctorInfo(doctor) {
     const infoElement = document.getElementById(`${doctor}-info`);
-    infoElement.classList.toggle('active');
-    
-    // Fechar outras informações abertas
     const allInfos = document.querySelectorAll('.doctor-info');
+    
+    // Fechar todas as informações primeiro
     allInfos.forEach(info => {
-        if (info.id !== `${doctor}-info` && info.classList.contains('active')) {
+        if (info.id !== `${doctor}-info`) {
             info.classList.remove('active');
         }
     });
     
-    // Scroll suave para a informação expandida
+    // Alternar a informação clicada
+    infoElement.classList.toggle('active');
+    
+    // Atualizar o botão
+    const buttons = document.querySelectorAll('.view-profile-btn');
+    buttons.forEach(btn => {
+        if (btn.parentElement.nextElementSibling === infoElement) {
+            btn.textContent = infoElement.classList.contains('active') ? 'Ocultar Perfil ↑' : 'Ver Perfil ↓';
+        } else {
+            btn.textContent = 'Ver Perfil ↓';
+        }
+    });
+    
+    // Scroll suave se estiver abrindo
     if (infoElement.classList.contains('active')) {
         setTimeout(() => {
             infoElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 300);
+        }, 100);
     }
 }
 
