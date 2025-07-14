@@ -40,6 +40,27 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// Alternar informações das doutoras
+function toggleDoctorInfo(doctor) {
+    const infoElement = document.getElementById(`${doctor}-info`);
+    infoElement.classList.toggle('active');
+    
+    // Fechar outras informações abertas
+    const allInfos = document.querySelectorAll('.doctor-info');
+    allInfos.forEach(info => {
+        if (info.id !== `${doctor}-info` && info.classList.contains('active')) {
+            info.classList.remove('active');
+        }
+    });
+    
+    // Scroll suave para a informação expandida
+    if (infoElement.classList.contains('active')) {
+        setTimeout(() => {
+            infoElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 300);
+    }
+}
+
 // Scroll suave para links âncora
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
