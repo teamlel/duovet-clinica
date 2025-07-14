@@ -34,7 +34,7 @@
       "name": "Duovet",
       "description": "Clínica veterinária especializada em atendimento 24h",
       "url": "https://duovet.com.br",
-      "logo": href="images/clinica.jpeg",
+      "logo": "images/clinica.jpeg",
       "telephone": "+5515991773925",
       "address": {
         "@type": "PostalAddress",
@@ -69,15 +69,14 @@
     <div class="container">
       <nav>
         <div class="logo">
-          <div class="logo-text">
-            <h1><span>Duovet</span></h1>
-            <span class="slogan">Cuidando com amor e ciência</span>
-          </div>
+          <h1><span></span></h1>
+          <span class="slogan">Cuidando com amor e ciência</span>
         </div>
 
         <ul class="nav-links">
           <li><a href="#home">Início</a></li>
           <li><a href="#services">Serviços</a></li>
+          <li><a href="#doctors">Doutoras</a></li>
           <li><a href="#clinic">Clínica</a></li>
           <li><a href="#testimonials">Depoimentos</a></li>
           <li><a href="#contact">Contato</a></li>
@@ -243,53 +242,102 @@
     </div>
   </section>
 
-<!-- Seção Nossas Doutoras -->
-<section class="doctors" id="doctors">
+  <!-- Seção Nossas Doutoras Atualizada -->
+  <section class="doctors" id="doctors">
     <div class="container">
-        <div class="section-title">
-            <h2>Nossas Doutoras</h2>
-            <p>Conheça nossa equipe de profissionais especializados</p>
+      <div class="section-title">
+        <h2>Nossas Doutoras</h2>
+        <p>Conheça nossa equipe de profissionais especializados</p>
+      </div>
+      
+      <div class="doctors-grid">
+        <!-- Dra. Ana Luiza -->
+        <div class="doctor-card">
+          <div class="doctor-profile" onclick="toggleDoctorInfo('ana')">
+            <div class="doctor-image">
+              <img src="https://i.imgur.com/Jf6o5Yp.jpg" alt="Dra. Ana Luiza" loading="lazy">
+            </div>
+            <h3>Dra. Ana Luiza</h3>
+            <p class="doctor-specialty">Veterinária Geral</p>
+            <button class="view-profile-btn">Ver Perfil ↓</button>
+          </div>
+          
+          <div class="doctor-info" id="ana-info">
+            <div class="doctor-expanded">
+              <div class="doctor-details">
+                <h4>Formação Acadêmica</h4>
+                <ul>
+                  <li>Graduação em Medicina Veterinária - USP (2010)</li>
+                  <li>Especialização em Clínica Médica de Pequenos Animais - USP (2013)</li>
+                  <li>Mestrado em Doenças Infectocontagiosas - UNESP (2016)</li>
+                </ul>
+                
+                <h4>Experiência Profissional</h4>
+                <ul>
+                  <li>Clínica Veterinária PetCare - 2012-2018</li>
+                  <li>Hospital Veterinário São Francisco - 2018-2021</li>
+                  <li>Fundadora da Duovet - 2021-presente</li>
+                </ul>
+                
+                <h4>Áreas de Atuação</h4>
+                <div class="specialties">
+                  <span>Medicina Preventiva</span>
+                  <span>Dermatologia</span>
+                  <span>Nutrição Animal</span>
+                </div>
+              </div>
+              <div class="doctor-photo">
+                <img src="https://i.imgur.com/Jf6o5Yp.jpg" alt="Dra. Ana Luiza em atendimento">
+              </div>
+            </div>
+          </div>
         </div>
         
-        <div class="doctors-grid">
-            <!-- Dra. Ana Luiza -->
-            <div class="doctor-card">
-                <div class="doctor-profile" onclick="toggleDoctorInfo('ana')">
-                    <div class="doctor-image">
-                        <img src="https://i.imgur.com/Jf6o5Yp.jpg" alt="Dra. Ana Luiza" loading="lazy">
-                    </div>
-                    <h3>Dra. Ana Luiza</h3>
-                    <p class="doctor-specialty">Veterinária Geral</p>
-                    <button class="view-profile-btn">Ver Perfil ↓</button>
-                </div>
-                
-                <div class="doctor-info" id="ana-info">
-                    <p>Formada pela Universidade de São Paulo (USP) com especialização em Clínica Médica de Pequenos Animais. CRMV/SP 68.110</p>
-                    <p>Mais de 10 anos de experiência em atendimento veterinário, com foco em medicina preventiva e tratamento de doenças crônicas.</p>
-                </div>
+        <!-- Dra. Ana Júlia -->
+        <div class="doctor-card">
+          <div class="doctor-profile" onclick="toggleDoctorInfo('julia')">
+            <div class="doctor-image">
+              <img src="https://i.imgur.com/mN3y1Kz.jpg" alt="Dra. Ana Júlia" loading="lazy">
             </div>
-            
-            <!-- Dra. Ana Júlia -->
-            <div class="doctor-card">
-                <div class="doctor-profile" onclick="toggleDoctorInfo('julia')">
-                    <div class="doctor-image">
-                        <img src="https://i.imgur.com/mN3y1Kz.jpg" alt="Dra. Ana Júlia" loading="lazy">
-                    </div>
-                    <h3>Dra. Ana Júlia</h3>
-                    <p class="doctor-specialty">Cirurgiã Veterinária</p>
-                    <button class="view-profile-btn">Ver Perfil ↓</button>
-                </div>
+            <h3>Dra. Ana Júlia</h3>
+            <p class="doctor-specialty">Cirurgiã Veterinária</p>
+            <button class="view-profile-btn">Ver Perfil ↓</button>
+          </div>
+          
+          <div class="doctor-info" id="julia-info">
+            <div class="doctor-expanded reverse">
+              <div class="doctor-photo">
+                <img src="https://i.imgur.com/mN3y1Kz.jpg" alt="Dra. Ana Júlia em cirurgia">
+              </div>
+              <div class="doctor-details">
+                <h4>Formação Acadêmica</h4>
+                <ul>
+                  <li>Graduação em Medicina Veterinária - UNESP (2011)</li>
+                  <li>Residência em Cirurgia de Pequenos Animais - UFPR (2014)</li>
+                  <li>Especialização em Ortopedia Veterinária - USP (2017)</li>
+                </ul>
                 
-                <div class="doctor-info" id="julia-info">
-                    <p>Formada pela Universidade Estadual Paulista (UNESP) com especialização em Cirurgia de Pequenos Animais. CRMV/SP 45.231</p>
-                    <p>Especialista em procedimentos cirúrgicos minimamente invasivos e ortopedia veterinária.</p>
+                <h4>Experiência Profissional</h4>
+                <ul>
+                  <li>Hospital Veterinário Sena Madureira - 2014-2017</li>
+                  <li>Centro Cirúrgico Veterinário - 2017-2020</li>
+                  <li>Co-fundadora da Duovet - 2021-presente</li>
+                </ul>
+                
+                <h4>Áreas de Atuação</h4>
+                <div class="specialties">
+                  <span>Cirurgia Geral</span>
+                  <span>Ortopedia</span>
+                  <span>Cirurgia Minimamente Invasiva</span>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</section>
+  </section>
 
-  
   <!-- Seção da Clínica Premium -->
   <section class="clinic" id="clinic">
     <div class="container">
@@ -344,11 +392,11 @@
             <div class="gallery-caption">Sala da recepção</div>
           </div>
           <div class="gallery-item">
-            <img src="images/salaconsulta.jpeg" alt="Área de internação animal" loading="eager">
+            <img src="images/salaconsulta.jpeg" alt="Área de internação animal" loading="lazy">
             <div class="gallery-caption">Área de Internação</div>
           </div>
           <div class="gallery-item">
-            <img src="images/clinica.jpeg" alt="Equipamentos modernos da clínica" loading="eager">
+            <img src="images/clinica.jpeg" alt="Equipamentos modernos da clínica" loading="lazy">
             <div class="gallery-caption">Clínica</div>
           </div>
         </div>
@@ -470,7 +518,26 @@
           </div>
         </div>
 
-       
+        <div class="contact-form" id="appointmentForm">
+          <h3>Agende uma Consulta</h3>
+          <form>
+            <input type="text" placeholder="Seu Nome" required>
+            <input type="email" placeholder="Seu E-mail" required>
+            <input type="tel" placeholder="Seu Telefone" required>
+            <select required>
+              <option value="">Selecione o Serviço</option>
+              <option>Consulta</option>
+              <option>Vacinação</option>
+              <option>Cirurgia</option>
+              <option>Exames</option>
+              <option>Emergência</option>
+            </select>
+            <textarea placeholder="Mensagem (Opcional)"></textarea>
+            <button type="submit" class="btn">
+              <i class="far fa-paper-plane"></i> Enviar Solicitação
+            </button>
+          </form>
+        </div>
       </div>
 
       <div class="map-container" id="map">
@@ -498,8 +565,8 @@
           <ul class="footer-links">
             <li><a href="#home"><i class="fas fa-chevron-right"></i> Início</a></li>
             <li><a href="#services"><i class="fas fa-chevron-right"></i> Serviços</a></li>
+            <li><a href="#doctors"><i class="fas fa-chevron-right"></i> Nossas Doutoras</a></li>
             <li><a href="#clinic"><i class="fas fa-chevron-right"></i> Nossa Clínica</a></li>
-            <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Depoimentos</a></li>
             <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contato</a></li>
           </ul>
         </div>
@@ -527,7 +594,6 @@
         </div>
       </div>
 
-      
       <div class="footer-bottom">
         <p class="copyright">&copy; 2025 Duovet - Clínica Veterinária. Todos os direitos reservados.</p>
         <p class="developer-credit">
