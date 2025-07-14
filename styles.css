@@ -392,7 +392,7 @@ nav {
 
 /* Ajustes específicos para cada doutora */
 .doctor-photo.ana-luiza img {
-  object-position: center 95%;
+  object-position: center top;
 }
 
 .doctor-photo.ana-julia img {
