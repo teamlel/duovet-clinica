@@ -1,3 +1,17 @@
+// Definir animações
+document.styleSheets[0].insertRule(`
+  @keyframes navLinkFade {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+`, 0);
+
 // Menu Mobile
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
@@ -42,35 +56,36 @@ window.addEventListener('scroll', () => {
 
 // Alternar informações das doutoras
 function toggleDoctorInfo(doctor) {
-    const infoElement = document.getElementById(`${doctor}-info`);
-    const allInfos = document.querySelectorAll('.doctor-info');
-    
-    // Fechar todas as informações primeiro
-    allInfos.forEach(info => {
-        if (info.id !== `${doctor}-info`) {
-            info.classList.remove('active');
-        }
-    });
-    
-    // Alternar a informação clicada
-    infoElement.classList.toggle('active');
-    
-    // Atualizar o botão
-    const buttons = document.querySelectorAll('.view-profile-btn');
-    buttons.forEach(btn => {
-        if (btn.parentElement.nextElementSibling === infoElement) {
-            btn.textContent = infoElement.classList.contains('active') ? 'Ocultar Perfil ↑' : 'Ver Perfil ↓';
-        } else {
-            btn.textContent = 'Ver Perfil ↓';
-        }
-    });
-    
-    // Scroll suave se estiver abrindo
-    if (infoElement.classList.contains('active')) {
-        setTimeout(() => {
-            infoElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 100);
+  const infoElement = document.getElementById(`${doctor}-info`);
+  const allInfos = document.querySelectorAll('.doctor-info');
+  
+  // Fechar todas as informações primeiro
+  allInfos.forEach(info => {
+    if (info.id !== `${doctor}-info`) {
+      info.classList.remove('active');
+      // Resetar o texto do botão de outras doutoras
+      const otherBtn = info.previousElementSibling.querySelector('.view-profile-btn');
+      if (otherBtn) {
+        otherBtn.textContent = 'Ver Perfil ↓';
+      }
     }
+  });
+  
+  // Alternar a informação clicada
+  infoElement.classList.toggle('active');
+  
+  // Atualizar o botão
+  const btn = infoElement.previousElementSibling.querySelector('.view-profile-btn');
+  if (infoElement.classList.contains('active')) {
+    btn.textContent = 'Ocultar Perfil ↑';
+    
+    // Scroll suave para a seção expandida
+    setTimeout(() => {
+      infoElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  } else {
+    btn.textContent = 'Ver Perfil ↓';
+  }
 }
 
 // Scroll suave para links âncora
@@ -82,7 +97,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     
     if (targetElement) {
       window.scrollTo({
-        top: targetElement.offsetTop - 80,
+        top: targetElement.offsetTop - 100,
         behavior: 'smooth'
       });
       
