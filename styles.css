@@ -346,22 +346,24 @@ background-clip: text;
 /* Seção Nossas Doutoras */
 .doctors {
     padding: 80px 0;
-    background-color: var(--claro);
+    background-color: var(--branco);
 }
 
 .doctors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
-    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 .doctor-card {
-    background: var(--branco);
+    width: 100%;
+    max-width: 350px;
+    background: var(--claro);
     border-radius: 12px;
-    padding: 25px;
-    text-align: center;
+    overflow: hidden;
     box-shadow: var(--sombra);
     transition: var(--transicao);
 }
@@ -371,91 +373,66 @@ background-clip: text;
     box-shadow: var(--sombra-hover);
 }
 
-.doctor-image {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    margin: 0 auto 20px;
-    overflow: hidden;
-    position: relative;
+.doctor-profile {
+    padding: 25px;
+    text-align: center;
     cursor: pointer;
-    border: 5px solid var(--primaria);
+}
+
+.doctor-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    overflow: hidden;
+    border: 4px solid var(--primaria);
 }
 
 .doctor-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.doctor-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(138, 43, 226, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.doctor-overlay span {
-    color: white;
-    font-weight: 600;
-}
-
-.doctor-image:hover .doctor-overlay {
-    opacity: 1;
-}
-
-.doctor-image:hover img {
-    transform: scale(1.1);
 }
 
 .doctor-specialty {
     color: var(--primaria);
     font-weight: 500;
-    margin-bottom: 15px;
+    margin: 10px 0;
+}
+
+.view-profile-btn {
+    background: transparent;
+    border: none;
+    color: var(--primaria);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-top: 10px;
+    transition: var(--transicao);
+}
+
+.view-profile-btn:hover {
+    color: var(--primaria-escura);
 }
 
 .doctor-info {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease;
-    text-align: left;
-    margin-top: 15px;
-    padding: 0 10px;
+    padding: 0 25px;
+    transition: all 0.5s ease;
+    background-color: rgba(138, 43, 226, 0.05);
 }
 
 .doctor-info.active {
-    max-height: 300px;
-    padding: 15px 10px;
+    max-height: 500px;
+    padding: 0 25px 25px;
 }
 
 .doctor-info p {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    text-align: left;
     font-size: 0.95rem;
-}
-
-.doctor-social {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.doctor-social a {
-    color: var(--primaria);
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-}
-
-.doctor-social a:hover {
-    color: var(--primaria-escura);
+    line-height: 1.6;
 }
 
 
