@@ -171,6 +171,45 @@ nav {
   z-index: 2;
 }
 
+/* Estilos para o alerta do clima */
+.weather-alert {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  padding: 12px 20px;
+  border-radius: 50px;
+  margin: 20px auto;
+  max-width: 80%;
+  font-size: 0.95rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.weather-alert i {
+  margin-right: 8px;
+}
+
+/* Tipos de alertas baseados no clima */
+.weather-hot {
+  background-color: rgba(226, 80, 65, 0.2);
+  border-color: rgba(226, 80, 65, 0.4);
+}
+
+.weather-cold {
+  background-color: rgba(65, 156, 226, 0.2);
+  border-color: rgba(65, 156, 226, 0.4);
+}
+
+.weather-rain {
+  background-color: rgba(65, 105, 226, 0.2);
+  border-color: rgba(65, 105, 226, 0.4);
+}
+
+.weather-normal {
+  background-color: rgba(46, 204, 113, 0.2);
+  border-color: rgba(46, 204, 113, 0.4);
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -291,7 +330,6 @@ nav {
 }
 
 .doctor-image img {
- /* width: 50%; */
   height: 100%;
   object-fit: cover;
   transition: var(--transicao);
