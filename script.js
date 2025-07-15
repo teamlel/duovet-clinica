@@ -161,7 +161,7 @@ function getWeather() {
   
   window.addEventListener('scroll', animateOnScroll);
   animateOnScroll(); // Executar uma vez ao carregar
-});
+
 
 // Formulário de contato
 const contactForm = document.getElementById('appointmentForm');
