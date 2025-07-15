@@ -446,6 +446,8 @@ nav {
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 15px;
+  justify-content: center;
+  align-items: center;
 }
 
 .specialties span {
@@ -454,6 +456,8 @@ nav {
   padding: 5px 15px;
   border-radius: 20px;
   font-size: 0.8rem;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* Seção Serviços */
