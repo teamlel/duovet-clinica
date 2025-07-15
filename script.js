@@ -196,6 +196,7 @@ function getWeather() {
 }
 
 // Carregamento otimizado de recursos
+document.addEventListener('DOMContentLoaded', getWeather);
 document.addEventListener('DOMContentLoaded', function() {
   // Obter informações do clima
   getWeather();
