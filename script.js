@@ -1,5 +1,7 @@
 // Definir animações
-document.styleSheets[0].insertRule(`
+const styleSheet = document.createElement('style');
+styleSheet.type = 'text/css';
+styleSheet.innerHTML = `
   @keyframes navLinkFade {
     from {
       opacity: 0;
@@ -10,7 +12,19 @@ document.styleSheets[0].insertRule(`
       transform: translateX(0);
     }
   }
-`, 0);
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+document.head.appendChild(styleSheet);
 
 // Menu Mobile
 const hamburger = document.querySelector('.hamburger');
