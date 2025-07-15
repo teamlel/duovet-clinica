@@ -114,7 +114,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Função para obter o clima de Sorocaba
 function getWeather() {
   const weatherElement = document.getElementById('weather-alert');
-  const apiKey = '304a63bc58a2d9c094c090eb11ec25c3'; // Substitua pela sua chave da OpenWeatherMap
+  const apiKey = '4bab5138dccbbf01c879b7f19e46d56b'; // Substitua pela sua chave da OpenWeatherMap
   const city = 'Sorocaba';
   const country = 'BR';
   const lang = 'pt_br';
