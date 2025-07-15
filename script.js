@@ -111,8 +111,98 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// Função para obter o clima de Sorocaba
+function getWeather() {
+  const weatherElement = document.getElementById('weather-alert');
+  const apiKey = '304a63bc58a2d9c094c090eb11ec25c3'; // Substitua pela sua chave da OpenWeatherMap
+  const city = 'Sorocaba';
+  const country = 'BR';
+  const lang = 'pt_br';
+  const units = 'metric';
+  
+  // Exibir mensagem de carregamento
+  weatherElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Carregando informações do clima...';
+  weatherElement.className = 'weather-alert';
+  
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=${units}&lang=${lang}&appid=${apiKey}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Erro na resposta da API');
+      }
+      return response.json();
+    })
+    .then(data => {
+      const temp = Math.round(data.main.temp);
+      const description = data.weather[0].description;
+      const weatherId = data.weather[0].id;
+      const humidity = data.main.humidity;
+      
+      let icon = '☀️';
+      let alertClass = 'weather-normal';
+      let message = '';
+      
+      // Determinar ícone e mensagem com base no clima
+      if (weatherId >= 200 && weatherId < 300) {
+        // Tempestade
+        icon = '⛈️';
+        alertClass = 'weather-rain';
+        message = `Tempestade em Sorocaba (${temp}°C) — mantenha seu pet em local seguro e protegido!`;
+      } else if (weatherId >= 300 && weatherId < 600) {
+        // Chuva
+        icon = '🌧️';
+        alertClass = 'weather-rain';
+        message = `Chuva em Sorocaba (${temp}°C, umidade ${humidity}%) — evite sair com seu pet sem proteção!`;
+      } else if (weatherId >= 600 && weatherId < 700) {
+        // Neve
+        icon = '❄️';
+        alertClass = 'weather-cold';
+        message = `Frio intenso em Sorocaba (${temp}°C) — proteja seu pet do frio com roupinhas!`;
+      } else if (weatherId >= 700 && weatherId < 800) {
+        // Atmosférico (névoa, etc)
+        icon = '🌫️';
+        alertClass = 'weather-normal';
+        message = `${description} em Sorocaba (${temp}°C) — cuidado com a visibilidade nos passeios!`;
+      } else if (weatherId === 800) {
+        // Céu limpo
+        if (temp > 30) {
+          icon = '🔥';
+          alertClass = 'weather-hot';
+          message = `Calor intenso em Sorocaba (${temp}°C) — atenção com pets de focinho curto e hidratação!`;
+        } else if (temp < 15) {
+          icon = '❄️';
+          alertClass = 'weather-cold';
+          message = `Frio em Sorocaba (${temp}°C) — proteja seu pet com roupinhas adequadas!`;
+        } else {
+          icon = '☀️';
+          alertClass = 'weather-normal';
+          message = `Clima agradável em Sorocaba (${temp}°C) — ótimo dia para passeios com seu pet!`;
+        }
+      } else if (weatherId > 800) {
+        // Nublado
+        icon = '⛅';
+        alertClass = 'weather-normal';
+        message = `Tempo nublado em Sorocaba (${temp}°C) — bom dia para atividades com seu pet!`;
+      }
+      
+      // Atualizar o elemento com as informações do clima
+      weatherElement.innerHTML = `${icon} ${message}`;
+      weatherElement.className = 'weather-alert ' + alertClass;
+    })
+    .catch(error => {
+      console.error('Erro ao obter dados do clima:', error);
+      weatherElement.innerHTML = '🌤️ Informações do clima indisponíveis no momento';
+      weatherElement.className = 'weather-alert weather-normal';
+    });
+}
+
 // Carregamento otimizado de recursos
 document.addEventListener('DOMContentLoaded', function() {
+  // Obter informações do clima
+  getWeather();
+  
+  // Atualizar o clima a cada hora (3600000 ms = 1 hora)
+  setInterval(getWeather, 3600000);
+  
   // Lazy loading para imagens
   const lazyImages = [].slice.call(document.querySelectorAll('img[loading="lazy"]'));
   
